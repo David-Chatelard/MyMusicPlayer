@@ -3,9 +3,22 @@ body{
 }
 
 .container{
-    /* background-color: blue; */
     width: 1000px;
     height: 800px;
     margin: auto;
     border: 1px solid white;
+}
+
+.song_list{
+    /* background-color: blue; */
+    width: 250px;
+    height: 700px;
+    border: 1px solid blue;
+}
+
+.bottom{
+    /* background-color: red; */
+    width: 1000px;
+    height: 100px;
+    border: 1px solid red;
 }
