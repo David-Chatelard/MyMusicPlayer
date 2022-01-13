@@ -12,8 +12,9 @@ body{
     background-color: #181818;
 }
 
+/* CSS of the song list at the left */
+
 .container_song_list{
-    /* background-color: blue; */
     width: 255px;
     height: 700px;
     border: 1px solid blue;
@@ -21,7 +22,6 @@ body{
 
 .song_list{
     list-style: none;
-    /* list-style-image: url("../assets/images/queen\ -\ Copia.jpg"); */
 }
 
 .song{
@@ -49,9 +49,28 @@ body{
     width: 60px;
 }
 
+/* CSS of the bottom of the page */
+
 .bottom{
-    /* background-color: red; */
     width: 1000px;
     height: 100px;
     border: 1px solid red;
+}
+
+.current_song{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+
+.controls{
+    display: inline-block;
+    position: relative;
+    left: 25%;
+    bottom: 10%;
+}
+
+.control_icons{
+    width: 25px;
+    margin-left: 10px;
 }
