@@ -7,6 +7,10 @@ body{
     border: 0;
 }
 
+hr{
+    border: 1px solid #4D4D4D;
+}
+
 .container{
     width: 1000px;
     height: 800px;
@@ -17,13 +21,14 @@ body{
 
 /* CSS of the image of the current song */
 
-.current_song_image{
+#current_song_image{
     position: relative;
     width: 743px;
     height: 700px;
     /* left: 255px; */
     /* display: inline-block; */
     float: right;
+    border-left: 2px solid #4D4D4D;
 }
 
 /* CSS of the song list at the left */
@@ -36,15 +41,29 @@ body{
     float: left;
 }
 
+.hr_song_list{
+    margin: 0;
+    width: 255px;
+}
+
 .song_list{
     list-style: none;
     display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 .song{
-    position: relative;
+    /* position: relative;
     right: 7px;
-    margin-top: 50px;
+    margin-top: 50px; */
+    padding-top: 15px;
+    padding-left: 30px;
+    /* border-bottom: 1px solid white; */
+}
+
+.song:hover{
+    background-color: #4D4D4D;
 }
 
 .song_name{
@@ -79,6 +98,9 @@ body{
     display: inline-block;
     margin-top: 15px;
     margin-left: 35px;
+    /* border-top: 1px solid white;
+    padding-bottom: 55px;
+    padding-left: 55px; */
 }
 
 .controls{
