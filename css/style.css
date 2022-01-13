@@ -2,14 +2,28 @@ body{
     background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 .container{
     width: 1000px;
     height: 800px;
     margin: auto;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     background-color: #181818;
+}
+
+/* CSS of the image of the current song */
+
+.current_song_image{
+    position: relative;
+    width: 743px;
+    height: 700px;
+    /* left: 255px; */
+    /* display: inline-block; */
+    float: right;
 }
 
 /* CSS of the song list at the left */
@@ -17,11 +31,14 @@ body{
 .container_song_list{
     width: 255px;
     height: 700px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    /* display: inline-block; */
+    float: left;
 }
 
 .song_list{
     list-style: none;
+    display: inline-block;
 }
 
 .song{
@@ -54,7 +71,8 @@ body{
 .bottom{
     width: 1000px;
     height: 100px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    display: inline-block;
 }
 
 .current_song{
