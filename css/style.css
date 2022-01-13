@@ -1,5 +1,7 @@
 body{
     background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container{
@@ -7,13 +9,44 @@ body{
     height: 800px;
     margin: auto;
     border: 1px solid white;
+    background-color: #181818;
+}
+
+.container_song_list{
+    /* background-color: blue; */
+    width: 255px;
+    height: 700px;
+    border: 1px solid blue;
 }
 
 .song_list{
-    /* background-color: blue; */
-    width: 250px;
-    height: 700px;
-    border: 1px solid blue;
+    list-style: none;
+    /* list-style-image: url("../assets/images/queen\ -\ Copia.jpg"); */
+}
+
+.song{
+    position: relative;
+    right: 7px;
+    margin-top: 50px;
+}
+
+.song_name{
+    position: relative;
+    bottom: 35px;
+}
+
+.artist{
+    position: relative;
+    bottom: 35px;
+    left: 65px;
+    font-size: 0.85em;
+    color: #C1C1C1;
+}
+
+.album_photo{
+    position: relative;
+    right: 10px;
+    width: 60px;
 }
 
 .bottom{
