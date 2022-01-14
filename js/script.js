@@ -33,8 +33,8 @@ function snow() {
 }
 
 function take_what_you_want() {
-    current_song_image.src = "../assets/images/post_malone.jpg"
-    current_song_album_photo.src = "../assets/images/post_malone.jpg"
+    current_song_image.src = "./assets/images/post_malone.jpg"
+    current_song_album_photo.src = "./assets/images/post_malone.jpg"
     current_song_name.innerText = "Take What You Want"
     current_artist_name.innerText = "Post Malone"
 }
