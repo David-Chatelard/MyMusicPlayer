@@ -95,9 +95,10 @@ hr{
 }
 
 .current_song{
+    width: 255px;
     display: inline-block;
     margin-top: 15px;
-    margin-left: 35px;
+    margin-left: 30px;
     /* border-top: 1px solid white;
     padding-bottom: 55px;
     padding-left: 55px; */
@@ -106,7 +107,7 @@ hr{
 .controls{
     display: inline-block;
     position: relative;
-    left: 25%;
+    left: 20%;
     bottom: 10%;
 }
 
