@@ -16,7 +16,7 @@
         <div class="container_song_list">
             <ul class="song_list">
 
-                <li class="song" onclick="somebody_to_love()" id="somebody_to_love">
+                <li class="song" onclick="update_current_song('somebody_to_love')" id="somebody_to_love">
                     <img class="album_photo" src="./assets/images/queen.jpg" alt="bohemian rhapsody">
                     <span class="song_name">Somebody To Love</span>
                     <br>
@@ -25,7 +25,7 @@
 
                 <hr class="hr_song_list">
 
-                <li class="song" onclick="bohemian_rhapsody()" id="bohemian_rhapsody">
+                <li class="song" onclick="update_current_song('bohemian_rhapsody')" id="bohemian_rhapsody">
                     <img class="album_photo" src="./assets/images/queen.jpg" alt="bohemian rhapsody">
                     <span class="song_name">Bohemian Rhapsody</span>
                     <br>
@@ -34,7 +34,7 @@
 
                 <hr class="hr_song_list">
 
-                <li class="song" onclick="otherside()" id="otherside">
+                <li class="song" onclick="update_current_song('otherside')" id="otherside">
                     <img class="album_photo" src="./assets/images/red_hot_californiacation.jpg" alt="californiacation">
                     <span class="song_name">Otherside</span>
                     <br>
@@ -43,7 +43,7 @@
 
                 <hr class="hr_song_list">
 
-                <li class="song" onclick="snow()" id="snow">
+                <li class="song" onclick="update_current_song('snow')" id="snow">
                     <img class="album_photo" src="./assets/images/red_hot_stadium.jpg" alt="stadium_arcadium">
                     <span class="song_name">Snow(Hey Oh)</span>
                     <br>
@@ -52,7 +52,7 @@
 
                 <hr class="hr_song_list">
 
-                <li class="song" onclick="take_what_you_want()" id="take_what_you_want">
+                <li class="song" onclick="update_current_song('take_what_you_want')" id="take_what_you_want">
                     <img class="album_photo" src="./assets/images/post_malone.jpg" alt="hollywood">
                     <span class="song_name">Take What You Want</span>
                     <br>
@@ -75,12 +75,22 @@
                 <span id="current_artist_name" class="artist">Queen</span>
             </div>
 
+            <audio id="music" >
+                <source src="./assets/music/somebody_to_love.mp3" type="audio/mp3">
+            </audio>
+
+            <div class="volume_control">
+                <img class="control_icons" id="volume_button" src="./assets/icons/medium_volume.png" alt="volume">
+                <input class="volume_slider slider-progress" type="range" min="0" max="100" value="50" onchange="volume_change()">
+            </div>
+
             <div class="controls">
-                <img class="control_icons" onclick="random()" src="./assets/icons/random2.png" alt="random">
-                <img class="control_icons" onclick="back()" src="./assets/icons/back2.png" alt="back">
-                <img class="control_icons" onclick="play_pause()" src="./assets/icons/play2.png" alt="play_pause">
-                <img class="control_icons" onclick="next()" src="./assets/icons/next2.png" alt="next">
-                <img class="control_icons" onclick="repeat()" src="./assets/icons/repeat2.png" alt="repeat">
+
+                <img class="control_icons" id="random_button" onclick="random()" src="./assets/icons/random2.png" alt="random">
+                <img class="control_icons" id="back_button" onclick="back()" src="./assets/icons/back2.png" alt="back">
+                <img class="control_icons" id="play_pause_button" onclick="play_pause()" src="./assets/icons/play2.png" alt="play_pause">
+                <img class="control_icons" id="next_button" onclick="next()" src="./assets/icons/next2.png" alt="next">
+                <img class="control_icons" id="repeat_button" onclick="repeat()" src="./assets/icons/repeat2.png" alt="repeat">
             </div>
             
         </div>
