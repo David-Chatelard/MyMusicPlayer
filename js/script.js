@@ -16,6 +16,7 @@ let current_artist_name = document.getElementById("current_artist_name");
 let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "take_what_you_want"];
 let current_song = 0;
 let random_status = false;
+let repeat_status = false;
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -80,8 +81,13 @@ function update_current_song(song) {
 function random() {
     if (random_status) {
         random_status = false;
+        random_button.src = "./assets/icons/random2.png";
+        random_button.style.bottom = "0px";
     } else {
         random_status = true;
+        random_button.src = "./assets/icons/random2_active.png";
+        random_button.style.position = "relative";
+        random_button.style.bottom = "2px";
     }
 }
 
@@ -138,7 +144,13 @@ function next() {
 }
 
 function repeat() {
-
+    if (repeat_status) {
+        repeat_status = false;
+        repeat_button.src = "./assets/icons/repeat2.png";
+    } else {
+        repeat_status = true;
+        repeat_button.src = "./assets/icons/repeat2_active.png";
+    }
 }
 
 for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
