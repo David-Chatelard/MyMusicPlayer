@@ -1,3 +1,5 @@
+const SONGS_QUANTITY = 5;
+
 let music = document.getElementById("music");
 
 let random_button = document.getElementById("random_button");
@@ -13,6 +15,11 @@ let current_artist_name = document.getElementById("current_artist_name");
 
 let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "take_what_you_want"];
 let current_song = 0;
+let random_status = false;
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 function update_current_song(song) {
     let playing = !(music.paused);
@@ -71,14 +78,18 @@ function update_current_song(song) {
 }
 
 function random() {
-
+    if (random_status) {
+        random_status = false;
+    } else {
+        random_status = true;
+    }
 }
 
 function back() {
     // let playing = !(music.paused);
 
     if (current_song == 0) {
-        current_song = 4;
+        current_song = SONGS_QUANTITY - 1;
     } else {
         current_song -= 1;
     }
@@ -104,10 +115,18 @@ function play_pause() {
 function next() {
     // let playing = !(music.paused);
 
-    if (current_song == 4) {
-        current_song = 0;
+    if (random_status) {
+        let aux = getRndInteger(0, SONGS_QUANTITY - 1);
+        while (aux == current_song) {
+            aux = getRndInteger(0, SONGS_QUANTITY - 1);
+        }
+        current_song = aux;
     } else {
-        current_song += 1;
+        if (current_song == SONGS_QUANTITY - 1) {
+            current_song = 0;
+        } else {
+            current_song += 1;
+        }
     }
 
     // music.src = `./assets/music/${song_list[current_song]}.mp3`;
@@ -127,4 +146,4 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
     e.style.setProperty('--min', e.min == '' ? '0' : e.min);
     e.style.setProperty('--max', e.max == '' ? '100' : e.max);
     e.addEventListener('input', () => e.style.setProperty('--value', e.value));
-  }
+}
