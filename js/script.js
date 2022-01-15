@@ -15,12 +15,21 @@ let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "
 let current_song = 0;
 
 function update_current_song(song) {
+    let playing = !(music.paused);
+
+    music.src = `./assets/music/${song}.mp3`;
+
+    if (playing) {
+        music.play();
+    }
+
     switch (song) {
         case "somebody_to_love":
             current_song_image.src = "./assets/images/queen.jpg";
             current_song_album_photo.src = "./assets/images/queen.jpg";
             current_song_name.innerText = "Somebody To Love";
             current_artist_name.innerText = "Queen";
+            current_song = 0;
             break;
 
         case "bohemian_rhapsody":
@@ -28,6 +37,7 @@ function update_current_song(song) {
             current_song_album_photo.src = "./assets/images/queen.jpg";
             current_song_name.innerText = "Bohemian Rhapsody";
             current_artist_name.innerText = "Queen";
+            current_song = 1;
             break;
 
         case "otherside":
@@ -35,6 +45,7 @@ function update_current_song(song) {
             current_song_album_photo.src = "./assets/images/red_hot_californiacation.jpg";
             current_song_name.innerText = "Otherside";
             current_artist_name.innerText = "Red Hot Chili Peppers";
+            current_song = 2;
             break;
 
         case "snow":
@@ -42,6 +53,7 @@ function update_current_song(song) {
             current_song_album_photo.src = "./assets/images/red_hot_stadium.jpg";
             current_song_name.innerText = "Snow(Hey Oh)";
             current_artist_name.innerText = "Red Hot Chili Peppers";
+            current_song = 3;
             break;
 
         case "take_what_you_want":
@@ -49,6 +61,7 @@ function update_current_song(song) {
             current_song_album_photo.src = "./assets/images/post_malone.jpg";
             current_song_name.innerText = "Take What You Want";
             current_artist_name.innerText = "Post Malone";
+            current_song = 4;
             break;
     
         default:
@@ -62,7 +75,7 @@ function random() {
 }
 
 function back() {
-    let playing = !(music.paused);
+    // let playing = !(music.paused);
 
     if (current_song == 0) {
         current_song = 4;
@@ -70,12 +83,12 @@ function back() {
         current_song -= 1;
     }
 
-    music.src = `./assets/music/${song_list[current_song]}.mp3`;
+    // music.src = `./assets/music/${song_list[current_song]}.mp3`;
     update_current_song(song_list[current_song]);
 
-    if (playing) {
-        music.play();
-    }
+    // if (playing) {
+    //     music.play();
+    // }
 }
 
 function play_pause() {
@@ -89,7 +102,7 @@ function play_pause() {
 }
 
 function next() {
-    let playing = !(music.paused);
+    // let playing = !(music.paused);
 
     if (current_song == 4) {
         current_song = 0;
@@ -97,12 +110,12 @@ function next() {
         current_song += 1;
     }
 
-    music.src = `./assets/music/${song_list[current_song]}.mp3`;
+    // music.src = `./assets/music/${song_list[current_song]}.mp3`;
     update_current_song(song_list[current_song]);
 
-    if (playing) {
-        music.play();
-    }
+    // if (playing) {
+        // music.play();
+    // }
 }
 
 function repeat() {
