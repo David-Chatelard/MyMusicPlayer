@@ -11,6 +11,9 @@ let current_song_album_photo = document.getElementById("current_song_album_photo
 let current_song_name = document.getElementById("current_song_name");
 let current_artist_name = document.getElementById("current_artist_name");
 
+let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "take_what_you_want"];
+let current_song = 0;
+
 function update_current_song(song) {
     switch (song) {
         case "somebody_to_love":
@@ -59,21 +62,47 @@ function random() {
 }
 
 function back() {
+    let playing = !(music.paused);
 
+    if (current_song == 0) {
+        current_song = 4;
+    } else {
+        current_song -= 1;
+    }
+
+    music.src = `./assets/music/${song_list[current_song]}.mp3`;
+    update_current_song(song_list[current_song]);
+
+    if (playing) {
+        music.play();
+    }
 }
 
 function play_pause() {
     if (music.paused) {
         music.play();
-        play_pause_button.src = "./assets/icons/pause2.png"
+        play_pause_button.src = "./assets/icons/pause2.png";
     } else {
         music.pause();
-        play_pause_button.src = "./assets/icons/play2.png"
+        play_pause_button.src = "./assets/icons/play2.png";
     }
 }
 
 function next() {
+    let playing = !(music.paused);
 
+    if (current_song == 4) {
+        current_song = 0;
+    } else {
+        current_song += 1;
+    }
+
+    music.src = `./assets/music/${song_list[current_song]}.mp3`;
+    update_current_song(song_list[current_song]);
+
+    if (playing) {
+        music.play();
+    }
 }
 
 function repeat() {
