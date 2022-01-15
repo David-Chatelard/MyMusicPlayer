@@ -18,8 +18,18 @@ let current_song = 0;
 let random_status = false;
 let repeat_status = false;
 
+music.addEventListener("ended", song_ended); //VERIFICAR DEPOIS SE FUNCIONA, PRECISA DO SLIDER DE TEMPO PRA TESTAR MELHOR
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function song_ended() {
+    if (repeat_status) {
+        update_current_song(current_song_name);
+    } else {
+        next()
+    }
 }
 
 function update_current_song(song) {
