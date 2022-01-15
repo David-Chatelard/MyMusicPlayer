@@ -80,8 +80,8 @@
             </audio>
 
             <div class="volume_control">
-                <img class="control_icons" id="volume_button" src="./assets/icons/medium_volume.png" alt="volume">
-                <input class="volume_slider slider-progress" type="range" min="0" max="100" value="50" onchange="volume_change()">
+                <img class="control_icons" id="volume_button" onclick="mute()" src="./assets/icons/low_volume.png" alt="volume">
+                <input class="volume_slider slider-progress" id="volume_level_slider" type="range" min="0" max="100" value="20">
             </div>
 
             <div class="song_time_container">

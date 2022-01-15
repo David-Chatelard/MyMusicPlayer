@@ -1,27 +1,65 @@
+// Number of songs
 const SONGS_QUANTITY = 5;
 
+// Audio handle
 let music = document.getElementById("music");
 
+// Buttons handles
+let volume_button = document.getElementById("volume_button");
 let random_button = document.getElementById("random_button");
 let back_button = document.getElementById("back_button");
 let play_pause_button = document.getElementById("play_pause_button");
 let next_button = document.getElementById("next_button");
 let repeat_button = document.getElementById("repeat_button");
 
+// Current song in the left corner handles
 let current_song_image = document.getElementById("current_song_image");
 let current_song_album_photo = document.getElementById("current_song_album_photo");
 let current_song_name = document.getElementById("current_song_name");
 let current_artist_name = document.getElementById("current_artist_name");
 
+// Song list and some status variables
 let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "take_what_you_want"];
 let current_song = 0;
 let random_status = false;
 let repeat_status = false;
 
+// Volume
+let volume_level_slider = document.getElementById("volume_level_slider");
+let volume_level = parseInt(document.getElementById("volume_level_slider").value);
+music.volume = (volume_level / 100) / 4;
+
+// Adding event listeners
 music.addEventListener("ended", song_ended); //VERIFICAR DEPOIS SE FUNCIONA, PRECISA DO SLIDER DE TEMPO PRA TESTAR MELHOR
+volume_level_slider.addEventListener("input", volume_change);
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function mute() {
+    if (music.muted) {
+        volume_button.src = "./assets/icons/medium_volume.png";
+        music.muted = false;
+    } else {
+        volume_button.src = "./assets/icons/muted.png";
+        music.muted = true;
+    }
+}
+
+function volume_change() {
+    volume_level = parseInt(document.getElementById("volume_level_slider").value);
+    music.volume = (volume_level / 100) / 4;
+
+    if (volume_level == 0) {
+        volume_button.src = "./assets/icons/muted.png";
+    } else if (volume_level > 0 && volume_level <= 35){
+        volume_button.src = "./assets/icons/low_volume.png";
+    } else if (volume_level > 35 && volume_level <= 70){
+        volume_button.src = "./assets/icons/medium_volume.png";
+    } else if (volume_level > 70){
+        volume_button.src = "./assets/icons/high_volume.png";
+    }
 }
 
 function song_ended() {
