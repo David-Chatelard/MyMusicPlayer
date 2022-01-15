@@ -26,18 +26,24 @@ let random_status = false;
 // Volume slider handle
 let volume_level_slider = document.getElementById("volume_level_slider");
 
-// Setting starting volume
-let volume_level = parseInt(document.getElementById("volume_level_slider").value);
-music.volume = (volume_level / 100) / 4;
-
 // Song time slider handle
 let song_time_slider = document.getElementById("song_time_slider_id");
 let timer;
 
 // Adding event listeners
-music.addEventListener("ended", song_ended); //VERIFICAR DEPOIS SE FUNCIONA, PRECISA DO SLIDER DE TEMPO PRA TESTAR MELHOR
+music.addEventListener("ended", song_ended);
 volume_level_slider.addEventListener("input", volume_change);
 song_time_slider.addEventListener("input", time_change);
+
+// When the pages first loads
+    // Setting starting volume
+let volume_level = parseInt(document.getElementById("volume_level_slider").value);
+music.volume = (volume_level / 100) / 4;
+
+    // Starting the time slider
+clearInterval(timer);
+timer = setInterval(time_slider, 1000);
+
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -49,7 +55,8 @@ function time_change() {
 
 function time_slider() {
     song_time_slider.value = (music.currentTime / music.duration) * 100;
-    song_time_slider.style.width = `{(music.currentTime / music.duration) * 100}%`;
+    // song_time_slider.max = (music.currentTime / music.duration) * 100;
+    // song_time_slider.style.width = `{(music.currentTime / music.duration) * 100}%`;
 }
 
 function mute() {
@@ -78,9 +85,7 @@ function volume_change() {
 }
 
 function song_ended() {
-    if (music.loop) {
-        console.log("fon");
-    } else {
+    if (!music.loop) {
         next(true)
     }
 }
@@ -96,7 +101,7 @@ function update_current_song(song, ended) {
 
     music.src = `./assets/music/${song}.mp3`;
 
-    timer = setInterval(time_slider, 500);
+    timer = setInterval(time_slider, 1000);
 
     if (playing) {
         music.play();

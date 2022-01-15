@@ -142,16 +142,17 @@ input[type=range].volume_slider::-webkit-slider-thumb {
   background: #fff;
   border: none;
   box-shadow: 0 0 2px #000000;
-  margin-top: calc(5px * 0.5 - 10px * 0.5);
+  margin-top: calc(4px * 0.5 - 10px * 0.5);
 }
 
 input[type=range].volume_slider::-webkit-slider-runnable-track {
-  height: 5px;
+  height: 4px;
   border: none;
   border-radius: 100px;
   background: #535353;
   box-shadow: none;
 }
+
 input[type=range].volume_slider.slider-progress::-webkit-slider-runnable-track {
   background: linear-gradient(#c1c1c1,#c1c1c1) 0/var(--sx) 100% no-repeat, #535353;
 }
@@ -171,7 +172,7 @@ input[type=range].volume_slider::-moz-range-thumb {
 }
 
 input[type=range].volume_slider::-moz-range-track {
-  height: 5px;
+  height: 4px;
   border: none;
   border-radius: 100px;
   background: #535353;
@@ -209,7 +210,7 @@ input[type=range].volume_slider::-ms-thumb {
 }
 
 input[type=range].volume_slider::-ms-track {
-  height: 5px;
+  height: 4px;
   border-radius: 100px;
   background: #535353;
   border: none;
@@ -218,7 +219,7 @@ input[type=range].volume_slider::-ms-track {
 }
 
 input[type=range].volume_slider.slider-progress::-ms-fill-lower {
-  height: 5px;
+  height: 4px;
   border-radius: 100px 0 0 100px;
   margin: -undefined 0 -undefined -undefined;
   background: #c1c1c1;
@@ -229,6 +230,8 @@ input[type=range].volume_slider.slider-progress::-ms-fill-lower {
 input[type=range].volume_slider.slider-progress:hover::-ms-fill-lower {
   background: #1db954;
 }
+
+
 
 .song_time_container{
     position: relative;
@@ -266,11 +269,11 @@ input[type=range].song_time_slider {
     background: #fff;
     border: none;
     box-shadow: 0 0 2px #000000;
-    margin-top: calc(5px * 0.5 - 10px * 0.5);
+    margin-top: calc(4px * 0.5 - 10px * 0.5);
   }
   
   input[type=range].song_time_slider::-webkit-slider-runnable-track {
-    height: 5px;
+    height: 4px;
     border: none;
     border-radius: 100px;
     background: #535353;
@@ -295,7 +298,7 @@ input[type=range].song_time_slider {
   }
   
   input[type=range].song_time_slider::-moz-range-track {
-    height: 5px;
+    height: 4px;
     border: none;
     border-radius: 100px;
     background: #535353;
@@ -333,7 +336,7 @@ input[type=range].song_time_slider {
   }
   
   input[type=range].song_time_slider::-ms-track {
-    height: 5px;
+    height: 4px;
     border-radius: 100px;
     background: #535353;
     border: none;
@@ -342,7 +345,7 @@ input[type=range].song_time_slider {
   }
   
   input[type=range].song_time_slider.slider-progress::-ms-fill-lower {
-    height: 5px;
+    height: 4px;
     border-radius: 100px 0 0 100px;
     margin: -undefined 0 -undefined -undefined;
     background: #c1c1c1;
