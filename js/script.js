@@ -1,3 +1,11 @@
+let music = document.getElementById("music");
+
+let random_button = document.getElementById("random_button");
+let back_button = document.getElementById("back_button");
+let play_pause_button = document.getElementById("play_pause_button");
+let next_button = document.getElementById("next_button");
+let repeat_button = document.getElementById("repeat_button");
+
 let current_song_image = document.getElementById("current_song_image");
 let current_song_album_photo = document.getElementById("current_song_album_photo");
 let current_song_name = document.getElementById("current_song_name");
@@ -55,7 +63,13 @@ function back() {
 }
 
 function play_pause() {
-
+    if (music.paused) {
+        music.play();
+        play_pause_button.src = "./assets/icons/pause2.png"
+    } else {
+        music.pause();
+        play_pause_button.src = "./assets/icons/play2.png"
+    }
 }
 
 function next() {
