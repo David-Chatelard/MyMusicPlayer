@@ -1,0 +1,3 @@
+video que eu usei pro volume slider: https://youtu.be/7UZbS-NBiD8?t=257
+site pra fazer o slider: https://toughengineer.github.io/demo/slider-styler/slider-styler.html#explanation
+outro video de fazer music player: https://www.youtube.com/watch?v=55UGdDbvgzY&t=98s
