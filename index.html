@@ -85,7 +85,7 @@
             </div>
 
             <div class="song_time_container">
-                <input class="song_time_slider slider-progress" type="range" min="0" max="100" value="0" onchange="nao_sei()">
+                <input class="song_time_slider slider-progress" id="song_time_slider_id" type="range" min="0" max="100" value="0">
             </div>
 
             <div class="controls">
@@ -93,7 +93,7 @@
                 <img class="control_icons" id="random_button" onclick="random()" src="./assets/icons/random2.png" alt="random">
                 <img class="control_icons" id="back_button" onclick="back()" src="./assets/icons/back2.png" alt="back">
                 <img class="control_icons" id="play_pause_button" onclick="play_pause()" src="./assets/icons/play2.png" alt="play_pause">
-                <img class="control_icons" id="next_button" onclick="next()" src="./assets/icons/next2.png" alt="next">
+                <img class="control_icons" id="next_button" onclick="next(false)" src="./assets/icons/next2.png" alt="next">
                 <img class="control_icons" id="repeat_button" onclick="repeat()" src="./assets/icons/repeat2.png" alt="repeat">
             </div>
             

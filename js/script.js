@@ -22,19 +22,34 @@ let current_artist_name = document.getElementById("current_artist_name");
 let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "take_what_you_want"];
 let current_song = 0;
 let random_status = false;
-let repeat_status = false;
 
-// Volume
+// Volume slider handle
 let volume_level_slider = document.getElementById("volume_level_slider");
+
+// Setting starting volume
 let volume_level = parseInt(document.getElementById("volume_level_slider").value);
 music.volume = (volume_level / 100) / 4;
+
+// Song time slider handle
+let song_time_slider = document.getElementById("song_time_slider_id");
+let timer;
 
 // Adding event listeners
 music.addEventListener("ended", song_ended); //VERIFICAR DEPOIS SE FUNCIONA, PRECISA DO SLIDER DE TEMPO PRA TESTAR MELHOR
 volume_level_slider.addEventListener("input", volume_change);
+song_time_slider.addEventListener("input", time_change);
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function time_change() {
+    music.currentTime = music.duration * (song_time_slider.value / 100);
+}
+
+function time_slider() {
+    song_time_slider.value = (music.currentTime / music.duration) * 100;
+    song_time_slider.style.width = `{(music.currentTime / music.duration) * 100}%`;
 }
 
 function mute() {
@@ -63,17 +78,25 @@ function volume_change() {
 }
 
 function song_ended() {
-    if (repeat_status) {
-        update_current_song(current_song_name);
+    if (music.loop) {
+        console.log("fon");
     } else {
-        next()
+        next(true)
     }
 }
 
-function update_current_song(song) {
-    let playing = !(music.paused);
+function update_current_song(song, ended) {
+    clearInterval(timer);
+    let playing = false;
+    if (ended) {
+        playing = true;
+    } else {
+        playing = !(music.paused);
+    }
 
     music.src = `./assets/music/${song}.mp3`;
+
+    timer = setInterval(time_slider, 500);
 
     if (playing) {
         music.play();
@@ -149,7 +172,7 @@ function back() {
     }
 
     // music.src = `./assets/music/${song_list[current_song]}.mp3`;
-    update_current_song(song_list[current_song]);
+    update_current_song(song_list[current_song], false);
 
     // if (playing) {
     //     music.play();
@@ -166,7 +189,7 @@ function play_pause() {
     }
 }
 
-function next() {
+function next(ended) {
     // let playing = !(music.paused);
 
     if (random_status) {
@@ -184,7 +207,11 @@ function next() {
     }
 
     // music.src = `./assets/music/${song_list[current_song]}.mp3`;
-    update_current_song(song_list[current_song]);
+    if (ended) {
+        update_current_song(song_list[current_song], true);
+    } else {
+        update_current_song(song_list[current_song], false);
+    }
 
     // if (playing) {
         // music.play();
@@ -192,11 +219,11 @@ function next() {
 }
 
 function repeat() {
-    if (repeat_status) {
-        repeat_status = false;
+    if (music.loop) {
+        music.loop = false;
         repeat_button.src = "./assets/icons/repeat2.png";
     } else {
-        repeat_status = true;
+        music.loop = true;
         repeat_button.src = "./assets/icons/repeat2_active.png";
     }
 }
