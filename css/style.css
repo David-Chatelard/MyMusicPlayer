@@ -264,6 +264,23 @@ input[type=range].volume_slider.slider-progress:hover::-ms-fill-lower {
     display: inline-block;
 }
 
+#current_time, #song_duration{
+  color: #C1C1C1;
+  font-size: 13px;
+}
+
+#current_time{
+  position: relative;
+  right: 345px;
+  top: 3px;
+}
+
+#song_duration{
+  position: absolute;
+  right: 0;
+  top: 3.5px;
+}
+
 
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/
@@ -386,11 +403,11 @@ input[type=range].song_time_slider {
 .controls{
     display: inline-block;
     position: relative;
-    right: 25%;
+    right: 27%;
     bottom: 10%;
 }
 
 .control_icons{
     width: 25px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }

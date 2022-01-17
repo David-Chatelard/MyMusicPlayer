@@ -23,12 +23,20 @@ let song_list = ["somebody_to_love", "bohemian_rhapsody", "otherside", "snow", "
 let current_song = 0;
 let random_status = false;
 
+// Song time handles
+let current_time = document.getElementById("current_time");
+let song_duration = document.getElementById("song_duration");
+
 // Volume slider handle
 let volume_level_slider = document.getElementById("volume_level_slider");
 
 // Song time slider handle
 let song_time_slider = document.getElementById("song_time_slider_id");
 let timer;
+
+// Song duration variables
+let minutes = 0;
+let seconds = 0;
 
 // Adding event listeners
 music.addEventListener("ended", song_ended);
@@ -40,6 +48,20 @@ song_time_slider.addEventListener("input", time_change);
 let volume_level = parseInt(document.getElementById("volume_level_slider").value);
 music.volume = (volume_level / 100) / 4;
 
+    // Setting the song duration
+music.onloadedmetadata = function() {
+    minutes = parseInt(music.duration / 60);
+    seconds = parseInt(music.duration % 60);
+    if (minutes >= 10 && seconds >= 10) {
+        song_duration.innerText = `${minutes}:${seconds}`;
+    } else if (minutes >= 10 && seconds < 10){
+        song_duration.innerText = `${minutes}:0${seconds}`;
+    } else if (minutes < 10 && seconds >= 10){
+        song_duration.innerText = `0${minutes}:${seconds}`;
+    } else if (minutes < 10 && seconds < 10){
+        song_duration.innerText = `0${minutes}:0${seconds}`;
+    }
+};
     // Starting the time slider
 clearInterval(timer);
 timer = setInterval(time_slider, 1000);
@@ -56,7 +78,18 @@ function time_change() {
 function time_slider() {
     song_time_slider.value = (music.currentTime / music.duration) * 100;
     // song_time_slider.max = (music.currentTime / music.duration) * 100;
-    // song_time_slider.style.width = `{(music.currentTime / music.duration) * 100}%`;
+    // song_time_slider.style.width = `${(music.currentTime / music.duration) * 100}%`;
+    minutes = parseInt(music.currentTime / 60);
+    seconds = parseInt(music.currentTime % 60);
+    if (minutes >= 10 && seconds >= 10) {
+        current_time.innerText = `${minutes}:${seconds}`;
+    } else if (minutes >= 10 && seconds < 10){
+        current_time.innerText = `${minutes}:0${seconds}`;
+    } else if (minutes < 10 && seconds >= 10){
+        current_time.innerText = `0${minutes}:${seconds}`;
+    } else if (minutes < 10 && seconds < 10){
+        current_time.innerText = `0${minutes}:0${seconds}`;
+    }
 }
 
 function mute() {
