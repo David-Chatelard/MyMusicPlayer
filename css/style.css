@@ -14,8 +14,12 @@ footer{
   padding: 10px;
   background-color: #181818;
   text-align: center;
-  color: #C1C1C1;
+  color: white;
   box-sizing: border-box;
+}
+
+.social_media_icons{
+  padding: 5px;
 }
 
 a{
@@ -24,7 +28,7 @@ a{
 
 #link_icons8{
   text-decoration: underline;
-  color: black;
+  color: #C1C1C1;
 }
 
 hr{
