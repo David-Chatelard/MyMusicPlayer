@@ -7,6 +7,25 @@ body{
     border: 0;
 }
 
+footer{
+  width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #181818;
+  text-align: center;
+  color: #C1C1C1;
+}
+
+a{
+  text-decoration: none;
+}
+
+#link_icons8{
+  text-decoration: underline;
+  color: black;
+}
+
 hr{
     border: 1px solid #4D4D4D;
 }
