@@ -75,13 +75,10 @@ function getRndInteger(min, max) {
 function time_change() {
     music.currentTime = music.duration * (song_time_slider.value / 100);
 }
+
 function time_slider() {
     song_time_slider.style = `--value:${parseInt((music.currentTime / music.duration) * 100)}; --min:0; --max:100;`;
     song_time_slider.value = parseInt((music.currentTime / music.duration) * 100);
-    // song_time_slider.setAttribute('value', parseInt((music.currentTime / music.duration) * 100));
-    // song_time_slider.stepUp();
-    // song_time_slider.max = (music.currentTime / music.duration) * 100;
-    // song_time_slider.style.width = `${(music.currentTime / music.duration) * 100}%`;
     minutes = parseInt(music.currentTime / 60);
     seconds = parseInt(music.currentTime % 60);
     if (minutes >= 10 && seconds >= 10) {
@@ -204,20 +201,13 @@ function random() {
 }
 
 function back() {
-    // let playing = !(music.paused);
-
     if (current_song == 0) {
         current_song = SONGS_QUANTITY - 1;
     } else {
         current_song -= 1;
     }
 
-    // music.src = `./assets/music/${song_list[current_song]}.mp3`;
     update_current_song(song_list[current_song], false);
-
-    // if (playing) {
-    //     music.play();
-    // }
 }
 
 function play_pause() {
@@ -231,8 +221,6 @@ function play_pause() {
 }
 
 function next(ended) {
-    // let playing = !(music.paused);
-
     if (random_status) {
         let aux = getRndInteger(0, SONGS_QUANTITY - 1);
         while (aux == current_song) {
@@ -247,16 +235,11 @@ function next(ended) {
         }
     }
 
-    // music.src = `./assets/music/${song_list[current_song]}.mp3`;
     if (ended) {
         update_current_song(song_list[current_song], true);
     } else {
         update_current_song(song_list[current_song], false);
     }
-
-    // if (playing) {
-        // music.play();
-    // }
 }
 
 function repeat() {
