@@ -42,6 +42,7 @@ let seconds = 0;
 music.addEventListener("ended", song_ended);
 volume_level_slider.addEventListener("input", volume_change);
 song_time_slider.addEventListener("input", time_change);
+music.addEventListener("playing", time_slider);
 
 // When the pages first loads
     // Setting starting volume
@@ -74,9 +75,11 @@ function getRndInteger(min, max) {
 function time_change() {
     music.currentTime = music.duration * (song_time_slider.value / 100);
 }
-
 function time_slider() {
-    song_time_slider.value = (music.currentTime / music.duration) * 100;
+    song_time_slider.style = `--value:${parseInt((music.currentTime / music.duration) * 100)}; --min:0; --max:100;`;
+    song_time_slider.value = parseInt((music.currentTime / music.duration) * 100);
+    // song_time_slider.setAttribute('value', parseInt((music.currentTime / music.duration) * 100));
+    // song_time_slider.stepUp();
     // song_time_slider.max = (music.currentTime / music.duration) * 100;
     // song_time_slider.style.width = `${(music.currentTime / music.duration) * 100}%`;
     minutes = parseInt(music.currentTime / 60);
