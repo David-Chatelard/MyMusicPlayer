@@ -3,4 +3,5 @@
  
 You can access the website through this [link](https://david-chatelard.github.io/MyMusicPlayer).
 
-![image](https://user-images.githubusercontent.com/42392257/149412008-d44e5b74-aa93-425c-a0ba-cfbfc3666051.png)
+![image](https://user-images.githubusercontent.com/42392257/149815669-030da6f6-c4cb-4617-8714-842b0485e256.png)
+
